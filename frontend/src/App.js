@@ -1,6 +1,6 @@
 const App = () => {
   return(
-    <div>Front End</div>
+    <div>Front End (updated)</div>
   )
 }
 
