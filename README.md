@@ -1,4 +1,4 @@
-# How to contribute
+# How To Contribute
 
 * git clone this repo
 * go the your working folder **cd frontend** or **cd backend**
