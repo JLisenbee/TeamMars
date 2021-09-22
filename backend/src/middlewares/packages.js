@@ -3,6 +3,8 @@ const volleyball = require('volleyball')
 const helmet = require('helmet')
 const cors = require('cors')
 const mongoose = require('mongoose')
+const { OAuth2Client } = require('google-auth-library')
+const jwt = require('jsonwebtoken')
 require('dotenv').config() 
 
 module.exports = {
@@ -10,5 +12,7 @@ module.exports = {
   volleyball,
   helmet,
   cors,
-  mongoose
+  mongoose,
+  OAuth2Client,
+  jwt
 }
