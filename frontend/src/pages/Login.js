@@ -25,13 +25,27 @@ const Login = () => {
   // body of our login page
   return(
     <>
-      <GoogleLogin
-        clientId={variable.GOOGLE_CLIENT_ID}
-        buttonText="Login with umbcID"
-        onSuccess={onSuccess}
-        onFailure={onFailure}
-        cookiePolicy={'single_host_origin'}
-      />
+      <div class = "flexContainer">
+        <div class = "loginBox">
+          <h1>Welcome</h1>
+          <p>By logging in you accept our Privacy 
+             Policy and Terms of Service</p>
+            <div class = "flexContainer">
+              <GoogleLogin
+              clientId={variable.GOOGLE_CLIENT_ID}
+              render={renderProps => (
+                <button class = "button"
+                        onClick={renderProps.onClick} 
+                        disabled={renderProps.disabled}>
+                          Login with UMBC email</button>
+              )}
+              buttonText="Log in with UMBC email"
+              onSuccess={onSuccess}
+              onFailure={onFailure}
+              cookiePolicy={'single_host_origin'}/>
+            </div>
+        </div>
+      </div>
     </>
   )
 }

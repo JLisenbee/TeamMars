@@ -5,6 +5,49 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --accent: #F4B400;
+  --white: #FFFFFF;
+  --gray-100: #DEE3EA;
+  --gray-200: #B2BDCD;
+  --gray-300: #5D7290;
+  --gray-400: #4F617A;
+  --gray-500: #404F64;
+  --gray-600: #323D4D;
+  --gray-700: #242C37;
+  --gray-800: #151A21;
+  --gray-900: #0B0E11;
+
+  background: var(--gray-900);
+  color: var(--gray-100);
+}
+.flexContainer {
+  display: flex;
+  justify-content: center;
+}
+.loginBox {
+  flex: 1;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 19%;
+  padding: 1%;
+  height: 38%;
+  margin: 13%;
+  background: var(--gray-800);
+  border-radius: 8px;
+}
+
+.button {
+  background-color: var(--gray-700);
+  border-style: none;
+  border-radius: 8px;
+  min-width: 100%;
+  color: var(--white);
+  padding: 15px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  display: inline-block;
 }
 
 code {
