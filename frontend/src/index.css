@@ -21,22 +21,35 @@ body {
   background: var(--gray-900);
   color: var(--gray-100);
 }
+
+/* Style for links using the gold accent */
+.goldLink {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* Flexbox container to position the login box in the center */
 .flexContainer {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
+
+/* Flexbox styling for the login page box*/
 .loginBox {
   flex: 1;
   flex-grow: 0;
   flex-shrink: 0;
-  flex-basis: 19%;
+  flex-basis: 18%;
+  min-width: 200px;
   padding: 1%;
   height: 38%;
-  margin: 13%;
+  margin: 16%;
   background: var(--gray-800);
   border-radius: 8px;
 }
 
+/* Flexbox styling for the Google OAuth button */
 .button {
   background-color: var(--gray-700);
   border-style: none;
@@ -48,6 +61,40 @@ body {
   font-weight: bold;
   text-align: center;
   display: inline-block;
+}
+
+/* Flexbox styling for the privacy policy and terms of service*/
+.policyBox {
+  flex: 1;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 32%;
+  min-width: 350px;
+  padding: 1%;
+  height: 38%;
+  margin: 50px;
+  background: var(--gray-800);
+  border-radius: 8px;
+}
+
+/* Flexbox styling for the footer*/
+.footer {
+  flex: 2;
+  min-width: 100%;
+}
+
+/* Flexbox settings for the links and logo inside the footer*/
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footerText {
+  color: var(--gray-300);
+  font-weight: bold;
+  white-space: nowrap;
+  text-decoration: none;
+  padding: 0 20px 20px;
 }
 
 code {
