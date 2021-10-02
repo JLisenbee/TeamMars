@@ -1,7 +1,9 @@
+import { Link } from 'react-router-dom'
+
 const Home = () => {
   return(
     <>
-      Home Page
+      <Link class = "goldLink" to="/login">Go to login</Link>
     </>
   )
 }
