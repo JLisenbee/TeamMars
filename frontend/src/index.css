@@ -28,11 +28,22 @@ body {
   text-decoration: none;
 }
 
+/* Style for Wuphf logo that prevents from being highlighted */
+.svgText {
+  color: var(--accent);
+  font-size: 50;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
 /* Flexbox container to position the login box in the center */
 .flexContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
 }
 
 /* Flexbox styling for the login page box*/
@@ -44,7 +55,7 @@ body {
   min-width: 200px;
   padding: 1%;
   height: 38%;
-  margin: 16%;
+  margin: 15%;
   background: var(--gray-800);
   border-radius: 8px;
 }
@@ -55,12 +66,12 @@ body {
   border-style: none;
   border-radius: 8px;
   min-width: 100%;
-  color: var(--white);
+  color: var(--gray-100);
   padding: 15px;
   font-size: 14px;
   font-weight: bold;
-  text-align: center;
   display: inline-block;
+  white-space: pre;
 }
 
 /* Flexbox styling for the privacy policy and terms of service*/
@@ -87,14 +98,21 @@ body {
 .footerContent {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
 }
 
+/* Flexbox settings for text links inside the footer*/
 .footerText {
   color: var(--gray-300);
   font-weight: bold;
   white-space: nowrap;
   text-decoration: none;
-  padding: 0 20px 20px;
+  padding: 0 20px 10px;
+}
+
+/* Flexbox settings to separate external link images*/
+a + a {
+  margin-right: 30px;
 }
 
 code {

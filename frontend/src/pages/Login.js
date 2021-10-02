@@ -4,6 +4,7 @@ import axios from 'axios'
 import variable from '../variable'
 import Footer from '../components/Footer'
 import { Link } from 'react-router-dom'
+import { ReactComponent as GoogleG } from '../logos/google.svg';
 
 const Login = () => {
   
@@ -43,7 +44,9 @@ const Login = () => {
             <button class = "button"
                     onClick={renderProps.onClick} 
                     disabled={renderProps.disabled}>
-                      Login with UMBC email</button>
+                      <GoogleG />
+                      <text>   Login with UMBC email</text>
+                      </button>
                                     )}
             buttonText="Log in with UMBC email"
             onSuccess={onSuccess}
