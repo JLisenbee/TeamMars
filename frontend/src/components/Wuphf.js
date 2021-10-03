@@ -29,7 +29,7 @@ const Wuphf = () => {
             y="25" 
             fill = "var(--accent)" 
             fontSize = "50"
-            class = "svgText">
+            className = "svgText">
             <tspan fontSize="70">W</tspan>uphf</text>
         </svg> 
         </Link>

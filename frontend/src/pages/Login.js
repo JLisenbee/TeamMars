@@ -6,6 +6,7 @@ import variable from '../variable'
 import Footer from '../components/Footer'
 import { Link } from 'react-router-dom'
 import { ReactComponent as GoogleG } from '../logos/google.svg';
+import "../css/login.css";
 
 const Login = () => {
   let history = useHistory()
@@ -38,24 +39,23 @@ const Login = () => {
   // body of our login page
   return(
     <>
-      <div class = "flexContainer">
-        <div class = "loginBox">
+      <div className = "flexContainer">
+        <div className = "loginBox">
           <h1>Welcome</h1>
           <p>
-              By logging in you accept our 
-              <Link class = "goldLink" to="/privacy"> Privacy Policy </Link>
-              and 
-              <Link class = "goldLink" to="/tos"> Terms of Service</Link>
+              By logging in you accept our
+              <Link className = "goldLink" to="/privacy"> Privacy Policy </Link> and
+              <Link className = "goldLink" to="/tos">Terms of Service</Link>
           </p>
-          <div class = "flexContainer">
+          <div className = "flexContainer">
             <GoogleLogin
             clientId={variable.GOOGLE_CLIENT_ID}
             render={renderProps => (
-            <button class = "button"
+            <button className = "button"
                     onClick={renderProps.onClick} 
                     disabled={renderProps.disabled}>
                       <GoogleG />
-                      <text>   Login with UMBC email</text>
+                      Login with UMBC email
                       </button>
                                     )}
             buttonText="Log in with UMBC email"

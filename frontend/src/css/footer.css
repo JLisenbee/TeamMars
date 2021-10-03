@@ -1,0 +1,33 @@
+/* Flexbox styling for the footer*/
+.footer {
+    flex: 2;
+    min-width: 60%;
+    max-width: 100%;
+  }
+  
+  /* Flexbox settings for the links and logo inside the footer*/
+  .footerContent {
+    display: flex;
+    justify-content:space-between;
+    min-width: 60%;
+    max-width: 100%;
+    align-items: flex-end;
+  }
+  
+  /* Flexbox settings for text links inside the footer*/
+  .footerLink {
+    font-weight: bold;
+    white-space: nowrap;
+    padding: 0 2% 2%;
+  }
+
+  .footerText {
+    color: var(--gray-300);
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  /* Flexbox settings to separate external link images*/
+  a + a {
+    margin-left: 3%;
+  }
