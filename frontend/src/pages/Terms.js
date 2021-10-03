@@ -3,8 +3,8 @@ import Footer from '../components/Footer'
 const Terms = () => {
     return(
       <>
-        <div class = "flexContainer">
-            <div class = "policyBox">
+        <div className= "flexContainer">
+            <div className= "policyBox">
                 <h1>Wuphf Terms of Service</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                 do eiusmod tempor incididunt ut labore et dolore magna aliqua.

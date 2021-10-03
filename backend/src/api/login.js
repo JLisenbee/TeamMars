@@ -11,7 +11,7 @@ const generateToken = async (email) => {
 }
 
 // route to auth the client
-router.post('/auth/google', (req, res) => {
+router.post('/auth/google', async (req, res) => {
   const { tokenId } = req.body
   // nothing was sent
   if(!tokenId) {
@@ -24,9 +24,11 @@ router.post('/auth/google', (req, res) => {
     if(error) {
       res.status(400).send(new Error('User not validated'))
     }
-
     // extract user data
-    const {email_verified, name, email} = res.payload
+    return res.payload
+  })
+  .then(async (payload) => {
+    const {email_verified, name, email} = payload
     // if the email is verified
     if(email_verified) {
       // check if the user in already in the database
@@ -49,26 +51,25 @@ router.post('/auth/google', (req, res) => {
             await newUser.save()
             console.log('New User Added')
             const token = await generateToken(email)
-            return token
+            // send back the auth token
+            res.cookie('Token',token, { maxAge: 900000, httpOnly: true })
+            res.send('token added')
           }
           // old user, generate auth token
           else {
             console.log(`${name} Logged In`)
             const token = await generateToken(user.email)
-            return token
+            // send back the auth token
+            res.cookie('Token',token, { maxAge: 900000, httpOnly: true })
+            res.send('token added')
           }
         }
 
       })
     }
-  }).then((token, error) => {
-    if(error) {
-      res.status(400).send(error)
-    }
-    // send back the auth token
-    else {
-      res.send(token)
-    }
+  })
+  .catch((error) => {
+    res.status(400).send(error)
   })
 })
 

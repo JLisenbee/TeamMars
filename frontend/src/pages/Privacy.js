@@ -3,8 +3,8 @@ import Footer from '../components/Footer'
 const Privacy = () => {
     return(
       <>
-        <div class = "flexContainer">
-            <div class = "policyBox">
+        <div className= "flexContainer">
+            <div className= "policyBox">
                 <h1>Wuphf Privacy Policy</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                 do eiusmod tempor incididunt ut labore et dolore magna aliqua.

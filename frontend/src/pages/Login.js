@@ -1,4 +1,5 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import { GoogleLogin } from 'react-google-login'
 import axios from 'axios'
 import variable from '../variable'
@@ -7,16 +8,25 @@ import { Link } from 'react-router-dom'
 import { ReactComponent as GoogleG } from '../logos/google.svg';
 
 const Login = () => {
+  let history = useHistory()
   
   // if google login was a success 
   const onSuccess = async (response) => {
     // send the response data to our backend
     axios({
       method: "POST",
+      withCredentials: true,
       url: variable.SERVER_LOGIN_URL,
       data: {tokenId: response.tokenId}
     }).then((res) => {
       console.log(res)
+      history.push('/home')
+    })
+    .catch((error) => {
+      if (error.status === 400) {
+        // Handle 400
+        console.log(error.message)
+      }
     })
   }
 

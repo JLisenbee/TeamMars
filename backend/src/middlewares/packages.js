@@ -5,6 +5,7 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const { OAuth2Client } = require('google-auth-library')
 const jwt = require('jsonwebtoken')
+const cookieParser = require('cookie-parser')
 require('dotenv').config() 
 
 module.exports = {
@@ -14,5 +15,6 @@ module.exports = {
   cors,
   mongoose,
   OAuth2Client,
-  jwt
+  jwt, 
+  cookieParser,
 }
