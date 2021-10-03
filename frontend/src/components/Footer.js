@@ -3,6 +3,8 @@ import Wuphf from '../components/Wuphf'
 import { ReactComponent as Twitter } from '../logos/twitter.svg';
 import { ReactComponent as Git } from '../logos/github.svg';
 import { ReactComponent as Discord } from '../logos/discord.svg';
+import "../css/footer.css";
+
 
 // Footer for the login, TOS, and Privacy Policy pages.
 // Contains the Wuphf logo on the left of the pages and
@@ -10,15 +12,15 @@ import { ReactComponent as Discord } from '../logos/discord.svg';
 const Footer = () => {
     return(
       <>
-        <div class = "footer">
-          <div class = "footerContent"> 
-            <div class = "footerText">
+        <div className = "footer">
+          <div className = "footerContent"> 
+            <div className = "footerLink">
               <Wuphf />
             </div>
             
-            <div>
-              <Link class = "footerText" to="/privacy">Privacy Policy</Link>
-              <Link class = "footerText" to="/tos">Terms of Service</Link>
+            <div className = "footerLink">
+              <Link className = "footerText" to="/privacy">Privacy Policy</Link>
+              <Link className = "footerText" to="/tos">Terms of Service</Link>
               <a href='https://twitter.com/UMBC'><Twitter /></a>
               <a href='https://github.com/JLisenbee/TeamMars'><Git /></a>
               <a href='https://discord.gg/bVtMPMe'><Discord /></a>

@@ -1,0 +1,25 @@
+/* Flexbox styling for the login page box*/
+.loginBox {
+    flex: 1;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 18%;
+    min-width: 18%;
+    padding: 1%;
+    margin: 41%;
+    margin-top: 10%;
+    margin-bottom: 20%;
+    background: var(--gray-800);
+    border-radius: var(--border);
+  }
+  
+  /* Flexbox styling for the Google OAuth button */
+  .button {
+    background-color: var(--gray-700);
+    border-style: none;
+    border-radius: var(--border);
+    min-width: 100%;
+    color: var(--gray-100);
+    padding: 5%;
+    font-weight: bold;
+  }
