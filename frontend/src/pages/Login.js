@@ -38,35 +38,35 @@ const Login = () => {
 
   // body of our login page
   return(
-    <>
       <div className = "flexContainer">
-        <div className = "loginBox">
-          <h1>Welcome</h1>
-          <p>
-              By logging in you accept our
-              <Link className = "goldLink" to="/privacy"> Privacy Policy </Link> and
-              <Link className = "goldLink" to="/tos">Terms of Service</Link>
-          </p>
-          <div className = "flexContainer">
-            <GoogleLogin
-            clientId={variable.GOOGLE_CLIENT_ID}
-            render={renderProps => (
-            <button className = "button"
-                    onClick={renderProps.onClick} 
-                    disabled={renderProps.disabled}>
-                      <GoogleG />
-                      Login with UMBC email
-                      </button>
-                                    )}
-            buttonText="Log in with UMBC email"
-            onSuccess={onSuccess}
-            onFailure={onFailure}
-            cookiePolicy={'single_host_origin'}/>
+        <div className= "upperContent">
+          <div className = "loginBox">
+            <h1>Welcome</h1>
+            <p>
+                By logging in you accept our
+                <Link className = "goldLink" to="/privacy"> Privacy Policy </Link> and
+                <Link className = "goldLink" to="/tos">Terms of Service</Link>
+            </p>
+            <div className = "flexContainer">
+              <GoogleLogin
+              clientId={variable.GOOGLE_CLIENT_ID}
+              render={renderProps => (
+              <button className = "button"
+                      onClick={renderProps.onClick} 
+                      disabled={renderProps.disabled}>
+                        <GoogleG />
+                        Login with UMBC email
+                        </button>
+                                      )}
+              buttonText="Log in with UMBC email"
+              onSuccess={onSuccess}
+              onFailure={onFailure}
+              cookiePolicy={'single_host_origin'}/>
+            </div>
           </div>
         </div>
         <Footer />
       </div>
-    </>
   )
 }
 

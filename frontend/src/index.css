@@ -17,7 +17,7 @@ body {
   --gray-700: #242C37;
   --gray-800: #151A21;
   --gray-900: #0B0E11;
-  --border: 3%;
+  --border: 6px;
 
   background: var(--gray-900);
   color: var(--gray-100);
@@ -39,12 +39,6 @@ body {
   -ms-user-select: none;
 }
 
-/* Flexbox container to position the login box in the center */
-.flexContainer {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: space-between;
-}
 
 /* Flexbox styling for the privacy policy and terms of service*/
 .policyBox {

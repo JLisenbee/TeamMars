@@ -1,27 +1,20 @@
-/* Flexbox styling for the footer*/
-.footer {
-    flex: 2;
-    min-width: 60%;
-    max-width: 100%;
-  }
-  
-  /* Flexbox settings for the links and logo inside the footer*/
-  .footerContent {
+/* Flexbox settings for the links and logo inside the footer*/
+.footerContainer {
+    height: 10vh;
     display: flex;
     justify-content:space-between;
-    min-width: 60%;
-    max-width: 100%;
-    align-items: flex-end;
   }
   
   /* Flexbox settings for text links inside the footer*/
   .footerLink {
+    display: flex;
     font-weight: bold;
-    white-space: nowrap;
-    padding: 0 2% 2%;
+    align-items: flex-end;
+    padding: 0 5vw 5vh 5vw;
   }
 
   .footerText {
+    white-space: nowrap;
     color: var(--gray-300);
     font-weight: bold;
     text-decoration: none;
