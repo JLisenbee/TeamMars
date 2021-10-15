@@ -2,20 +2,20 @@ import {useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import Header from '../components/Header'
 
-const Home = () => {
+const Notifications = () => {
 
   useEffect(() => {
-    console.log('home')
+    console.log('notifications')
   })
 
   return(
     <>
       <div>
         <Header />
-        <h1>Home</h1>
+        <h1>Notifications</h1>
       </div>
     </>
   )
 }
 
-export default Home;
+export default Notifications;

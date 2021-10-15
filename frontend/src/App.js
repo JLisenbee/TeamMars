@@ -8,6 +8,8 @@ import Login from './pages/Login'
 import Home from './pages/Home'
 import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
+import Groups from './pages/Groups'
+import Notifications from './pages/Notifications'
 
 const App = () => {
 
@@ -60,6 +62,8 @@ const App = () => {
       <Route exact path='/privacy' component={Privacy}/>
       <Route exact path='/tos' component={Terms}/>
       <Route exact path='/home' component={Home}/>
+      <Route exact path='/groups' component={Groups}/>
+      <Route exact path='/notifications' component={Notifications}/>
     </Switch>
   )
 }
