@@ -16,17 +16,20 @@ const App = () => {
 
   useEffect(() => {
     // login route
+    // if the user is on the login page
     if(location.pathname === '/login') {
       axios({
         method: "GET",
         withCredentials: true,
         url: variable.SERVER_TOKEN_CHECK,
       }).then((res) => {
+        // user is already logged in, push to /home
         console.log(res)
         history.push('/home')
       })
       .catch((error) => {
         // if no permission
+        // user is not logged in, push to login page
         if (error.response.status === 403) {
           history.push('/login')
         }
@@ -34,7 +37,8 @@ const App = () => {
     }
 
     // private route
-    else if(location.pathname !== '/login' && location.pathname !== '/privacy' && location.pathname !== '/tos' ) {
+    // add all public routes here
+    else if(location.pathname !== '/privacy' && location.pathname !== '/tos' ) {
       // send token to the server
       axios({
         method: "GET",
@@ -42,10 +46,10 @@ const App = () => {
         url: variable.SERVER_TOKEN_CHECK,
       }).then((res) => {
         console.log(res)
-        history.push('/home')
       })
       .catch((error) => {
         // if no permission
+        // user is not logged in, send back to login page
         if (error.response.status === 403) {
           history.push('/login')
         }
