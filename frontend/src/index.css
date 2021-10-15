@@ -39,6 +39,11 @@ body {
   text-decoration: underline;
 }
 
+
+.noHighlight {
+  text-decoration: none;
+}
+
 /* Style for Wuphf logo that prevents from being highlighted */
 .svgText {
   color: var(--accent);

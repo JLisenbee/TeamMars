@@ -1,34 +1,58 @@
 /* Flexbox settings for text links inside the footer*/
-.headerLink {
+.headerEdge {
   display: flex;
   font-weight: bold;
-  align-items: baseline;
+  align-items: flex-end;
   flex-shrink: 0;
   padding: 5vh 5vw 0 5vw;
 }
 
+.headerCenter {
+  display: flex;
+  font-weight: bold;
+  align-items: flex-end;
+  flex-shrink: 0;
+  padding: 5vh 0 0;
+}
+
+/* Styling for the Groups button */
+.groupButton {
+  border-style: solid;
+  border-color: var(--gray-900);
+  border-radius: var(--border);
+  border-width: 1px;
+  padding: 5px;
+  color: var(--white);
+  background-color: var(--accent);
+  font-weight: bold;
+}
+.groupButton:hover {
+  border-color: var(--white);
+}
+
+/* Styling for the searchbar */
 input[type=text] {
   background-color: var(--gray-700);
   color: var(--gray-300);
-  width: 35vw;
+  width: 20vw;
   height: 40px;
   outline: none;
+  font-weight: bold;
   font-size: 16px;
   background-image:url(../logos/search.svg);
   background-repeat: no-repeat;
-  background-position: 13px 10px;
+  background-position: 13px 11px;
   padding-left: 40px;
-  border: 0;
+  border-style: solid;
+  border-color: var(--gray-900);
   border-radius: var(--border);
+  border-width: 1px;
 }
-
 input[type=text]:focus {
   background-color: var(--gray-800);
-  border: solid;
-  border-width: 1px;
   border-color: var(--gray-300);
 }
-
 ::placeholder {
   color: var(--gray-300);
+  font-weight: bold;
 }
