@@ -1,5 +1,6 @@
 import {useEffect} from 'react'
 import { Link } from 'react-router-dom'
+import Header from '../components/Header'
 
 const Home = () => {
 
@@ -9,7 +10,9 @@ const Home = () => {
 
   return(
     <>
-      <Link className= "goldLink" to="/login">Go to login</Link>
+      <div>
+        <Header />
+      </div>
     </>
   )
 }

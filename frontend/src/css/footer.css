@@ -1,26 +1,20 @@
-/* Flexbox settings for the links and logo inside the footer*/
-.footerContainer {
-    height: 10vh;
-    display: flex;
-    justify-content:space-between;
-  }
-  
-  /* Flexbox settings for text links inside the footer*/
-  .footerLink {
-    display: flex;
-    font-weight: bold;
-    align-items: flex-end;
-    padding: 0 5vw 5vh 5vw;
-  }
+/* Flexbox settings for text links inside the footer*/
+.footerLink {
+  display: flex;
+  font-weight: bold;
+  align-items: flex-end;
+  flex-shrink: 0;
+  padding: 0 5vw 5vh 5vw;
+}
 
-  .footerText {
-    white-space: nowrap;
-    color: var(--gray-300);
-    font-weight: bold;
-    text-decoration: none;
-  }
+.footerText {
+  white-space: nowrap;
+  color: var(--gray-300);
+  font-weight: bold;
+  text-decoration: none;
+  margin-left: 2%;
+}
 
-  /* Flexbox settings to separate external link images*/
-  a + a {
-    margin-left: 3%;
-  }
+.footerText:hover {
+  text-decoration: underline;
+}

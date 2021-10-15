@@ -36,5 +36,9 @@ body {
     padding: 10px;
     font-weight: bold;
   }
+  .button:hover {
+    background-color: var(--gray-600);
+    cursor: pointer;
+  }
 
   

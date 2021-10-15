@@ -1,4 +1,5 @@
 import Footer from '../components/Footer'
+import "../css/login.css"
 
 const Terms = () => {
     return(

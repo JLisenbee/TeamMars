@@ -43,8 +43,9 @@ const Login = () => {
           <div className = "loginBox">
             <h1>Welcome</h1>
             <p>
-                By logging in you accept our
-                <Link className = "goldLink" to="/privacy"> Privacy Policy </Link> and
+                <span>By logging in you accept our </span>
+                <Link className = "goldLink" to="/privacy">Privacy Policy</Link> 
+                <span> and </span>
                 <Link className = "goldLink" to="/tos">Terms of Service</Link>
             </p>
             <div className = "flexContainer">
