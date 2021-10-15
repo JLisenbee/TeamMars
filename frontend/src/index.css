@@ -23,10 +23,20 @@ body {
   color: var(--gray-100);
 }
 
+/* Flexbox container for the page header and footer */
+.menuContainer {
+  height: 10vh;
+  display: flex;
+  justify-content: space-between;
+}
+
 /* Style for links using the gold accent */
 .goldLink {
   color: var(--accent);
   text-decoration: none;
+}
+.goldLink:hover {
+  text-decoration: underline;
 }
 
 /* Style for Wuphf logo that prevents from being highlighted */
