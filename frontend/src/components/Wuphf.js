@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Wuphf = () => {
     return(
       <>
-      <Link to="/">
+      <Link to="/home">
         <svg 
             /* Vector image for the Wuphf logo */
             width="60" 

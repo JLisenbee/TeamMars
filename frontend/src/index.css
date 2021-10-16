@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-y: scroll;
 
   --accent: #F4B400;
   --white: #FFFFFF;
@@ -21,6 +22,20 @@ body {
 
   background: var(--gray-900);
   color: var(--gray-100);
+}
+
+/* Scrollbar styling */
+*::-webkit-scrollbar {
+  width: 11px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--gray-800);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--gray-600);
+  border-radius: var(--border);
 }
 
 /* Flexbox container for the page header and footer */
@@ -54,7 +69,14 @@ body {
   -ms-user-select: none;
 }
 
-
+/* Styling for content boxes */
+.box {
+  background: var(--gray-800);
+  border-radius: var(--border);
+  overflow-wrap: break-word;
+  width: 100%;
+  font-weight: normal;
+}
 /* Flexbox styling for the privacy policy and terms of service*/
 .policyBox {
   flex: 1;
@@ -66,8 +88,29 @@ body {
   margin: 20%;
   margin-top: 3%;
   margin-bottom: 3%;
-  background: var(--gray-800);
-  border-radius: 2%;
+}
+
+.bodyObject {
+  display: flex;
+  font-weight: bold;
+  align-items: flex-start;
+  flex-shrink: 0;
+  
+}
+.bodyLeftEdge {
+  padding: 5vh 2vw 5vh 5vw;
+  width: 260px;
+  overflow-wrap: anywhere;
+}
+.bodyCenter {
+  flex-shrink: 1;
+  flex-grow: 1;
+  min-width: 20vw;
+  padding: 5vh 0 0;
+}
+.bodyRightEdge {
+  padding: 5vh 5vw 5vh 1vw;
+  width: 278px;
 }
 
 code {
