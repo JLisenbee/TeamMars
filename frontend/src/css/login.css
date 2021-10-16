@@ -1,5 +1,5 @@
 body {
-  overflow: hidden; /* hide scrollbar */
+  overflow-x: hidden; /* hide scrollbar */
 }
 
 /* Flexbox container to position the login box in the center */

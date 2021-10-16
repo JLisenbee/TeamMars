@@ -10,6 +10,8 @@ import Privacy from './pages/Privacy'
 import Terms from './pages/Terms'
 import Groups from './pages/Groups'
 import Notifications from './pages/Notifications'
+import Alerts from './pages/Alerts'
+import Profile from './pages/Profile'
 
 const App = () => {
 
@@ -68,6 +70,8 @@ const App = () => {
       <Route exact path='/home' component={Home}/>
       <Route exact path='/groups' component={Groups}/>
       <Route exact path='/notifications' component={Notifications}/>
+      <Route exact path='/alerts' component={Alerts}/>
+      <Route exact path='/profile' component={Profile}/>
     </Switch>
   )
 }
