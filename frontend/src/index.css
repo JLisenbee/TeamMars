@@ -28,11 +28,9 @@ body {
 *::-webkit-scrollbar {
   width: 11px;
 }
-
 *::-webkit-scrollbar-track {
   background: var(--gray-800);
 }
-
 *::-webkit-scrollbar-thumb {
   background-color: var(--gray-600);
   border-radius: var(--border);
@@ -54,6 +52,10 @@ body {
   text-decoration: underline;
 }
 
+/* Style for text using gray color */
+.grayText {
+  color: var(--gray-300);
+}
 
 .noHighlight {
   text-decoration: none;
@@ -71,9 +73,12 @@ body {
 
 /* Styling for content boxes */
 .box {
+  box-sizing: border-box;
   background: var(--gray-800);
   border-radius: var(--border);
   overflow-wrap: break-word;
+  padding: 1vmin;
+  margin-bottom: 1vh;
   width: 100%;
   font-weight: normal;
 }
@@ -110,7 +115,7 @@ body {
 }
 .bodyRightEdge {
   padding: 5vh 5vw 5vh 1vw;
-  width: 278px;
+  width: 338px;
 }
 
 code {

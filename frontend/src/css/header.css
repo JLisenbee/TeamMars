@@ -11,6 +11,7 @@
 }
 .headerRightEdge {
   padding: 5vh 5vw 0 1vw;
+  margin-left: 60px;
   align-items: flex-end;
 }
 
