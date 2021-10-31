@@ -12,6 +12,7 @@ import Groups from './pages/Groups'
 import Notifications from './pages/Notifications'
 import Alerts from './pages/Alerts'
 import Profile from './pages/Profile'
+import Events from './pages/Events'
 
 const App = () => {
 
@@ -72,6 +73,7 @@ const App = () => {
       <Route exact path='/notifications' component={Notifications}/>
       <Route exact path='/alerts' component={Alerts}/>
       <Route exact path='/profile' component={Profile}/>
+      <Route exact path='/events' component={Events}/>
     </Switch>
   )
 }

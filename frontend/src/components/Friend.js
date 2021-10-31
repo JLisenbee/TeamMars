@@ -7,7 +7,7 @@ import ProfilePic from './ProfilePic'
 const Friend = () => {
     return(
         <div>
-            Friend?
+            <ProfilePic /> Friend?
         </div>
     )
   }
