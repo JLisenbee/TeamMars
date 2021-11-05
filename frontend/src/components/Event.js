@@ -1,14 +1,17 @@
 import { Link } from 'react-router-dom'
 import "../css/sidebar.css";
 
+//TODO: Import date, time, name, and event page
 
-// Header for pages, contains the logo with link to home
-// As well as a search bar and various buttons
-const Event = () => {
+// Component for singular events, includes date and time,
+// event name and link to event page
+const Event = (props) => {
     return(
         <div className = "eventBox">
-            <p className = "eventText eventGold"> TODAY 2:30</p>
-            <p className = "eventText"> Meeting at the Commons</p>
+            <p className = "eventText eventGold">{props.date} {props.time}</p>
+            <Link className = "noHighlight" to="/events">
+                <p className = "eventText">{props.details}</p>
+            </Link>
         </div>
     )
   }

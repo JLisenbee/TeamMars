@@ -1,5 +1,6 @@
-.extraMargin {
+.profBox {
     margin-bottom: 3vh;
+    min-width: 338px;
 }
 
 .explore {
@@ -16,6 +17,7 @@
 }
 
 .eventText {
+    color: var(--gray-100);
     font-size: small;
     font-weight: bold;
     text-decoration: none;
