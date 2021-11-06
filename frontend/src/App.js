@@ -13,6 +13,7 @@ import Notifications from './pages/Notifications'
 import Alerts from './pages/Alerts'
 import Profile from './pages/Profile'
 import Events from './pages/Events'
+import FourOhFour from './pages/FourOhFour'
 
 const App = () => {
 
@@ -72,8 +73,9 @@ const App = () => {
       <Route exact path='/groups' component={Groups}/>
       <Route exact path='/notifications' component={Notifications}/>
       <Route exact path='/alerts' component={Alerts}/>
-      <Route exact path='/profile' component={Profile}/>
+      <Route path='/profile' component={Profile}/>
       <Route exact path='/events' component={Events}/>
+      <Route exact path='*' component={FourOhFour}/>
     </Switch>
   )
 }
