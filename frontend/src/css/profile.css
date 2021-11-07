@@ -1,0 +1,50 @@
+.settingHeader {
+    width: 100%;
+    font-size: large;
+    margin: 4px 0 4px 1vw;
+    color: var(--gray-300);
+}
+    
+.settingButton {
+    width: 100%;
+    border-style: none;
+    border-radius: var(--border);
+    color: var(--gray-100);
+    text-decoration: none;
+    font-weight: normal;
+    margin: 4px 0;
+    padding: 5px 0 5px 1vw;
+}
+.settingButton:hover {
+    background-color: var(--gray-700);
+    cursor: pointer;
+}
+
+.selected {
+    background-color: var(--gray-800);
+    color: var(--white);
+    font-weight: bold;
+}
+
+input[type=settingText] {
+    background-color: var(--gray-700);
+    color: var(--white);
+    height: 40px;
+    width: 40%;
+    outline: none;
+    text-indent: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    border-style: solid;
+    border-color: var(--gray-900);
+    border-radius: var(--border);
+    border-width: 1px;
+  }
+  input[type=settingText]:focus {
+    background-color: var(--gray-800);
+    border-color: var(--gray-300);
+  }
+  ::placeholder {
+    color: var(--gray-300);
+    font-weight: bold;
+  }
