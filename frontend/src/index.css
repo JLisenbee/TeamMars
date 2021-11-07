@@ -118,6 +118,11 @@ body {
   width: 338px;
 }
 
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
