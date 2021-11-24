@@ -17,7 +17,7 @@ const Header = () => {
           </div>
 
           <div className = "bodyObject headerCenter">  
-            <input type="text" placeholder="Search for groups, users, or events"/>
+            <input type="searchText" placeholder="Search for groups, users, or events"/>
           </div>
 
           <div className = "bodyObject headerRightEdge">
