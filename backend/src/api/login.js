@@ -28,14 +28,14 @@ router.post('/auth/google', async (req, res) => {
     return res.payload
   })
   .then(async (payload) => {
-    const {email_verified, name, email} = payload
+    const {email_verified, name, email, picture} = payload
     // if the email is verified
     if(email_verified) {
       // check if the user in already in the database
       await User.findOne({email: email}).exec(async (err, user) => {
         // some error occured
         if(err) {
-          return new Error("Something went wrong")
+          res.status(500).send(new Error("Something went wrong"))
         }
         // no error checking the database
         else {
@@ -45,6 +45,7 @@ router.post('/auth/google', async (req, res) => {
             const newUser = new User({
               name: name, 
               email: email,
+              picture: picture,
               join_date: new Date()
             })
             // save the new user in the database

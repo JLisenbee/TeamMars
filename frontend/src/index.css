@@ -40,7 +40,7 @@ body {
 .menuContainer {
   height: 10vh;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 /* Style for links using the gold accent */

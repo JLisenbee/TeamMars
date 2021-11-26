@@ -49,7 +49,7 @@ const SideBar = () => {
                 <a className = "goldLink" href={https + profLink}><p>{profLink}</p></a>
             </div>
 
-            <div className = "box explore">
+            {/* <div className = "box explore">
                 <h2>Upcoming Events</h2>
                 <Event date = {curEvents[0][0]} time = {curEvents[0][1]} details = {curEvents[0][2]} />
                 <Event date = {curEvents[1][0]} time = {curEvents[1][1]} details = {curEvents[1][2]} />
@@ -57,7 +57,7 @@ const SideBar = () => {
                 <Link className = "noHighlight" to="/events">
                     <p className = "exploreText">Explore</p>
                 </Link>
-            </div>
+            </div> */}
         </div>
     )
   }

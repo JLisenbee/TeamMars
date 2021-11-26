@@ -2,10 +2,11 @@ import { Link } from 'react-router-dom'
 import '../css/profilepic.css'
 
 // Profile pic that links to user profile
-const ProfilePic = () => {
+const ProfilePic = ({userPicture}) => {
     return(
       <>
-        <Link className = "tempPic" to="/profile">   
+        <Link to="/profile">
+          <img className="tempPic" alt="profile_pic" src={userPicture}/>
         </Link>
       </>
     )

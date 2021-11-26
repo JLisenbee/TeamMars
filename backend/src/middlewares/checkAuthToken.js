@@ -13,7 +13,9 @@ const checkAuthToken = (req, res, next) => {
       if(error) {
         res.status(403).send(new Error('Invalid or Expired Token'))
       }
+      // valid token
       else{
+        req.userEmail = decoded.email
         next()
       }
     })

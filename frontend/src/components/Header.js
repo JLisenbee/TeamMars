@@ -9,7 +9,7 @@ import "../css/header.css";
 
 // Header for pages, contains the logo with link to home
 // As well as a search bar and various buttons
-const Header = () => {
+const Header = ({userPicture}) => {
     return(
         <div className = "menuContainer"> 
           <div className = "bodyObject headerLeftEdge">
@@ -29,7 +29,7 @@ const Header = () => {
               <div className = "groupButton"><Chatbox /> Your Groups</div>
             </Link>
 
-            <ProfilePic />
+            <ProfilePic userPicture={userPicture}/>
           </div>
 
         </div>

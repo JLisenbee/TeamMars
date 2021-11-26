@@ -1,7 +1,6 @@
 /* REPLACE WITH CODE TO IMPORT IMAGES AND CHANGE SIZE */
   .tempPic {
       border-radius: 50%;
-      background-image: url(../logos/ryan.jpg);
       background-size: contain;
       width: 40px;
       height: 40px;
