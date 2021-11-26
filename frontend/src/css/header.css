@@ -32,7 +32,7 @@
 }
 
 /* Styling for the searchbar */
-input[type=text] {
+input[type=searchText] {
   background-color: var(--gray-700);
   color: var(--gray-300);
   width: 100%;
@@ -50,7 +50,7 @@ input[type=text] {
   border-radius: var(--border);
   border-width: 1px;
 }
-input[type=text]:focus {
+input[type=searchText]:focus {
   background-color: var(--gray-800);
   border-color: var(--gray-300);
 }
