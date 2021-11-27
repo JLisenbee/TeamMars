@@ -3,12 +3,14 @@
     overflow-y: auto;
     overflow-x: hidden;
 }
+.chatBox ul>li {
+    margin: 15px 0;
+}
 
 .chatStyle {
     list-style-type: none;
     padding: 0;
     padding-bottom: 5px;
-    text-indent: 10px;
     position: relative;
     bottom: 0;
 }
@@ -22,3 +24,8 @@
     overflow: hidden;
     word-wrap: normal;
 }
+
+li>span {
+    color: #F4B400;
+    font-weight: bold;
+  }
