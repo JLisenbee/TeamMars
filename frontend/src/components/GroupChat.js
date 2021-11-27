@@ -1,37 +1,50 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import io from "socket.io-client"
+import { v4 as uuidv4 } from 'uuid';
 import "../css/groups.css";
 
-var username = "DSchrute";
+var displayname = "DSchrute"; // TODO: Fetch username from backend
 const initialChat = [
-    {id: '0', text: ""}
+    {username: '', text: ''}
 ];
 
-const GroupChat = () => {
+const GroupChat = (props) => {
     const [chat, setChat] = React.useState(initialChat);
-    const [name, setName] = React.useState('');
+    const [msg, setMsg] = React.useState({username: displayname, text: ''});
 
-    function handleChange(event) {
-      setName(event.target.value);
+    var socket = io('http://localhost:4000', { transports : ['websocket'] });
+
+function handleChange(event) {
+    setMsg({...msg, [event.target.name]: event.target.value});
+}
+
+function handleAdd() {
+    if (msg.text == '') {
+        return;
     }
+    socket.emit('new msg', msg.username, msg.text);
+    setMsg({username: msg.username, text: ''});
+}
 
-    function handleAdd() {
-        const newChat = chat.concat({ name });
-    
-        setChat(newChat);
-        
-      }
+
+socket.on('new msg', (newUsername, newText) => {
+    const newChat = chat.concat({username: newUsername, text: newText});
+    setChat(newChat);
+  });
+
 
     return(
+
         <div className = "box">
             <div className = "chatBox">
                 <ul className = "chatStyle">
-                {chat.map((item) => (
-                    <li key={item.id}>{item.name}</li>
+                {chat.slice(1).map((item) => (
+                    <li key={uuidv4()}><span className = "goldText">{item.username}<br /></span>{item.text}</li>
                 ))}
                 </ul>
             </div>
-            <input type="text" id = "msgText" placeholder = "Enter a message" 
-                    maxLength = "256" value = {name} onChange = {handleChange}/>
+            <input type="text" id = "msgText" placeholder = "Enter a message"
+                    maxLength = "256" value = {msg.text} onChange = {handleChange} name = "text"/>
             <button className = "button submitButton" onClick = {handleAdd}>Submit</button>
         </div>
     )

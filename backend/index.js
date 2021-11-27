@@ -2,6 +2,22 @@
 const { express, volleyball, cors, helmet, cookieParser } = require('./src/middlewares/packages')
 const { checkAuthToken } = require('./src/middlewares/checkAuthToken')
 const app = express();
+const http = require('http');
+const server = http.createServer(app);
+const { Server } = require("socket.io");
+const io = new Server(server);
+
+// socket.io functions for Group chats
+io.on('connection', (socket) => {
+  socket.on('new msg', newMsg => {
+    io.emit('new msg', newMsg);
+  });
+});
+
+server.listen(4000, () => {
+  console.log('listening on *:4000');
+});
+
 
 // MongoDB instance
 const { db } = require('./src/db/dbConfig')

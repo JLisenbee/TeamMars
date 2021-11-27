@@ -127,7 +127,7 @@ input[type=text] {
   background-color: var(--gray-700);
   color: var(--gray-300);
   height: 40px;
-  width: 80%;
+  width: 85%;
   outline: none;
   text-indent: 10px;
   font-weight: bold;
