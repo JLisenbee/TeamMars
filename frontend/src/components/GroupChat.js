@@ -19,7 +19,7 @@ function handleChange(event) {
 }
 
 function handleAdd() {
-    if (msg.text == '') {
+    if (msg.text === '') {
         return;
     }
     socket.emit('new msg', msg.username, msg.text);

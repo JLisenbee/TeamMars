@@ -7,7 +7,7 @@ var postText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
 // Feed containing posts specific to the user's subscribed tags
 const Feed = () => {
 
-    const [isModelOpen, setisModelOpen] = useState(true)
+    const [isModelOpen, setisModelOpen] = useState(false)
 
     return(
         <div>

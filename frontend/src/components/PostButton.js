@@ -1,9 +1,13 @@
 import PostModel from './PostModel'
 
 const PostButton = ({isModelOpen, setisModelOpen}) => {
+
   return(
     <>
-      <button onClick={() => {setisModelOpen(true)}} style={{ 
+      <button onClick={() => {
+            setisModelOpen(true) 
+            document.body.style.overflow = 'hidden'
+            }} style={{ 
         width: '65px', 
         height: '35px', 
         background: '#F4B400', 

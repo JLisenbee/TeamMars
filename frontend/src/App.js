@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Switch, Route, useLocation, useHistory } from 'react-router-dom'
+import { useStoreActions } from 'easy-peasy'
 import axios from 'axios'
 import variable from './variable'
 
@@ -19,6 +20,11 @@ const App = () => {
 
   let history = useHistory()
   let location = useLocation()
+
+  const setuserName = useStoreActions((actions) => actions.setuserName)
+  const setuserEmail = useStoreActions((actions) => actions.setuserEmail)
+  const setuserPicture = useStoreActions((actions) => actions.setuserPicture)
+  const setuserId = useStoreActions((actions) => actions.setuserId)
 
   useEffect(() => {
     // login route
@@ -51,7 +57,20 @@ const App = () => {
         withCredentials: true,
         url: variable.SERVER_TOKEN_CHECK,
       }).then((res) => {
-        console.log(res)
+        // get user data
+        // send the response data to our backend
+        axios({
+          method: "GET",
+          withCredentials: true,
+          url: variable.GET_USER_DATA,
+        }).then((res) => {
+          const { email, name, picture, id } = res.data
+          // update store data
+          setuserEmail(email)
+          setuserName(name)
+          setuserPicture(picture)
+          setuserId(id)
+        })
       })
       .catch((error) => {
         // if no permission
