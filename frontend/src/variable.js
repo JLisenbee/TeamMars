@@ -3,7 +3,9 @@ const variable = {
    GOOGLE_CLIENT_SECRET: 'oNgTVzfvqAuPqhLHS0GlG6QB',
    SERVER_LOGIN_URL: 'http://localhost:5000/login/auth/google',
    SERVER_TOKEN_CHECK: 'http://localhost:5000/api',
-   GET_USER_DATA: 'http://localhost:5000/api/getUserData'
+   GET_USER_DATA: 'http://localhost:5000/api/getUserData',
+   CREATE_POST: 'http://localhost:5000/api/creatPost',
+   GET_ALL_POST: 'http://localhost:5000/api/getAllPost'
 }
 
 export default variable

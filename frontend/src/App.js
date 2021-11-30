@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Switch, Route, useLocation, useHistory } from 'react-router-dom'
 import { useStoreActions } from 'easy-peasy'
 import axios from 'axios'
@@ -64,12 +64,12 @@ const App = () => {
           withCredentials: true,
           url: variable.GET_USER_DATA,
         }).then((res) => {
-          const { email, name, picture, id } = res.data
+          const { email, name, picture, _id } = res.data
           // update store data
           setuserEmail(email)
           setuserName(name)
           setuserPicture(picture)
-          setuserId(id)
+          setuserId(_id)
         })
       })
       .catch((error) => {

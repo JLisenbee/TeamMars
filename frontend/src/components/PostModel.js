@@ -1,13 +1,41 @@
+import { useState } from 'react'
 import { useStoreState } from 'easy-peasy'
 import ProfilePic from './ProfilePic'
 import {ReactComponent as Logo2} from '../logos/discord.svg'
 import {ReactComponent as Logo3} from '../logos/github.svg'
-
+import axios from 'axios'
+import variable from '../variable'
 
 const PostModel = ({isModelOpen, setisModelOpen}) => {
   
+  const [postText, setpostText] = useState('')
+
+  const userName = useStoreState((state) => state.userName)
+  const userEmail = useStoreState((state) => state.userEmail)
   const userPicture = useStoreState((state) => state.userPicture)
-  
+  const userId = useStoreState((state) => state.userId)
+
+  const handlePost = () => {
+
+    const data = {
+      userName: userName,
+      userEmail: userEmail,
+      userPicture: userPicture,
+      userId: userId,
+      postText: postText,
+      creationDate: new Date()
+    }
+
+    axios({
+      method: "POST",
+      withCredentials: true,
+      url: variable.CREATE_POST,
+      data: data
+    }).then((res) => {
+      console.log(res)
+    })
+  }
+
   return(
     <> 
       <div onClick={() => {
@@ -29,6 +57,8 @@ const PostModel = ({isModelOpen, setisModelOpen}) => {
         display: `${isModelOpen ? '': 'none'}`, 
         position: 'absolute',
         top: 30,
+        left: 0,
+        right: 0,
         width: '600px', 
         height: '250px', 
         background: '#242C37',
@@ -41,7 +71,7 @@ const PostModel = ({isModelOpen, setisModelOpen}) => {
           <div style={{ display: 'flex', width: '95%', height: '90%', paddingTop: '20px'}}>
             <ProfilePic userPicture={userPicture}/>
             <div style={{ width: '100%', height: '100%', display:'flex', flexDirection:'column'}}>
-              <textarea placeholder="What's going on?" style={{ 
+              <textarea value={postText} onChange={(e) => {setpostText(e.target.value)}} placeholder="What's going on?" style={{ 
                   width: '100%', 
                   height: '100%', 
                   borderStyle: 'none',
@@ -62,14 +92,17 @@ const PostModel = ({isModelOpen, setisModelOpen}) => {
                     <Logo3/>
                     <Logo2/>
                   </div>
-                  <button style={{ 
+                  <button disabled={postText === '' ? true:false} type="submit" onClick={handlePost} style={{ 
                     width: '65px', 
                     height: '35px', 
                     background: '#F4B400', 
                     fontWeight: 'bold', 
                     color: 'white', 
                     border: 'none', 
-                    borderRadius: '4px' }}>Post</button>
+                    borderRadius: '4px',
+                    opacity: `${postText === '' ? 50:100}%`,
+                    cursor:  `${postText === '' ? 'not-allowed':'pointer'}`
+                    }}>Post</button>
                 </div>
               </div>
             </div>

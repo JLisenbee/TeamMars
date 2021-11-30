@@ -1,16 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+import variable from '../variable'
 import Post from './Post'
 import PostButton from './PostButton'
-
-var postText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nec nam aliquam sem et tortor consequat. Fermentum leo vel orci porta non pulvinar neque. Ultricies lacus sed turpis tincidunt id aliquet risus feugiat in. Purus in mollis nunc sed id.";
 
 // Feed containing posts specific to the user's subscribed tags
 const Feed = () => {
 
+    
     const [isModelOpen, setisModelOpen] = useState(false)
+    const [allPosts, setallPosts] = useState([])
+
+    useEffect(() => {
+        axios({
+            method: "GET",
+            withCredentials: true,
+            url: variable.GET_ALL_POST,
+            }).then((res) => {
+            setallPosts(res.data)
+        })
+    }, [])
 
     return(
-        <div>
+        <div style={{ width: '100%' }}>
             <div style={{ 
                 display: 'flex', 
                 flexDirection: 'row', 
@@ -19,17 +31,17 @@ const Feed = () => {
                 <h2>Your Feed</h2>
                 <PostButton isModelOpen={isModelOpen} setisModelOpen={setisModelOpen}/>
             </div>
-            <Post body = {postText}/>
-            <Post body = {postText}/>
-            <Post body = {postText}/>
-            <Post body = {postText}/>
-            <Post body = {postText}/>
-            <Post body = {postText}/>
-            <Post body = {postText}/>
-            <Post body = {postText}/>
-            <Post body = {postText}/>
-            <Post body = {postText}/>
-            <Post body = {postText}/>
+            { 
+               allPosts.length === 0 ? 
+               <div style={{opacity: '50%', fontStyle: "italic", display: 'flex', justifyContent: 'center'}} >No Posts Here</div>
+               :
+               allPosts.slice(0).reverse().map((post, key) => (<Post key={key} 
+                id={post.authorId} 
+                name={post.authorName} 
+                picture={post.authorPicture} 
+                content={post.content} 
+                created={post.created}></Post>)) 
+            }
         </div>
     )
   }
