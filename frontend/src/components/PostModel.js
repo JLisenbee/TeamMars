@@ -34,6 +34,9 @@ const PostModel = ({isModelOpen, setisModelOpen}) => {
     }).then((res) => {
       console.log(res)
     })
+   
+    setisModelOpen(false)
+    window.location.reload()
   }
 
   return(
@@ -53,20 +56,22 @@ const PostModel = ({isModelOpen, setisModelOpen}) => {
         background: 'rgba(0, 0, 0, 0.7)',
         overflow: 'hidden'}}>
       </div>
-      <div style={{ 
-        display: `${isModelOpen ? '': 'none'}`, 
-        position: 'absolute',
-        top: 30,
-        left: 0,
-        right: 0,
-        width: '600px', 
-        height: '250px', 
-        background: '#242C37',
-        borderRadius: '6px',
-        marginTop: '50px',
-        marginLeft: 'auto', 
-        marginRight: 'auto', 
-        overflow: 'hidden'}}>
+        <div style={{ 
+          display: `${isModelOpen ? '': 'none'}`, 
+          position: 'absolute',
+          top: 30,
+          left: 0,
+          right: 0,
+          width: '600px', 
+          height: '250px', 
+          background: '#242C37',
+          borderRadius: '6px',
+          marginTop: '50px',
+          marginLeft: 'auto', 
+          marginRight: 'auto', 
+          overflow: 'hidden', 
+          opacity: '100%', 
+          zIndex: '1000'}}>
         {/* upper half */}
           <div style={{ display: 'flex', width: '95%', height: '90%', paddingTop: '20px'}}>
             <ProfilePic userPicture={userPicture}/>
