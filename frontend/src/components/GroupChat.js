@@ -1,14 +1,16 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import io from "socket.io-client"
 import { v4 as uuidv4 } from 'uuid';
 import "../css/groups.css";
 
-var displayname = "DSchrute"; // TODO: Fetch username from backend
-const initialChat = [
-    {username: '', text: ''}
-];
+var displayname = "DScrute"; // TODO: Fetch username from backend
 
 const GroupChat = (props) => {
+    
+    const initialChat = [
+        {username: '', text: ''}
+    ];
+
     const [chat, setChat] = React.useState(initialChat);
     const [msg, setMsg] = React.useState({username: displayname, text: ''});
 
@@ -19,17 +21,19 @@ function handleChange(event) {
 }
 
 function handleAdd() {
-    if (msg.text === '') {
+    if (msg.text == '') {
         return;
     }
-    socket.emit('new msg', msg.username, msg.text);
-    setMsg({username: msg.username, text: ''});
+
+    const added = {username: msg.username, text: msg.text};
+    socket.emit('new msg', added);
+    setMsg({username: msg.displayname, text: ''})
 }
 
 
-socket.on('new msg', (newUsername, newText) => {
-    const newChat = chat.concat({username: newUsername, text: newText});
-    setChat(newChat);
+socket.on('new msg', (added) => {
+    const update = [...chat, {username: added.username, text: added.text}];
+    setChat(update);
   });
 
 
@@ -39,7 +43,7 @@ socket.on('new msg', (newUsername, newText) => {
             <div className = "chatBox">
                 <ul className = "chatStyle">
                 {chat.slice(1).map((item) => (
-                    <li key={uuidv4()}><span className = "goldText">{item.username}<br /></span>{item.text}</li>
+                    <li key={uuidv4()}><span>{item.username}<br /></span>{item.text}</li>
                 ))}
                 </ul>
             </div>
