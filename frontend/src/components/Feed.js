@@ -36,11 +36,13 @@ const Feed = () => {
                <div style={{opacity: '50%', fontStyle: "italic", display: 'flex', justifyContent: 'center'}} >No Posts Here</div>
                :
                allPosts.slice(0).reverse().map((post, key) => (<Post key={key} 
+                postId={post._id}
                 id={post.authorId} 
                 name={post.authorName} 
                 picture={post.authorPicture} 
                 content={post.content} 
-                created={post.created}></Post>)) 
+                created={post.created}
+                meta={post.meta}></Post>)) 
             }
         </div>
     )

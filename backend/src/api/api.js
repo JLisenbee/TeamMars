@@ -32,6 +32,12 @@ router.post('/creatPost', async (req, res) => {
     authorEmail: userEmail,
     authorPicture: userPicture,
     content: postText,
+    meta:  {
+      comments: [],
+      repost: [],
+      like: [],
+      dislike: [], 
+    },
     created: creationDate 
   })
 
@@ -51,6 +57,74 @@ router.get('/getAllPost', async(req, res) => {
      else {
       //  send back user data
       res.send(posts)
+    }
+  })
+})
+
+router.post('/likePost', async(req, res) => {
+  const { postId, userId } = req.body
+  await Post.findOne({_id: postId}).exec(async (err, post) => {
+    // some error occured
+    if(err) {
+      res.status(500).send(new Error("Something went wrong"))
+    }
+     // no error checking the database
+     else {
+      post.meta.like.push(userId)
+      // if the user disliked as well
+      post.meta.dislike = post.meta.dislike.filter((user) => {return user != userId})
+      await post.save()
+      res.send(post)
+    }
+  })
+})
+
+router.post('/dislikePost', async(req, res) => {
+  const { postId, userId } = req.body
+  await Post.findOne({_id: postId}).exec(async (err, post) => {
+    // some error occured
+    if(err) {
+      res.status(500).send(new Error("Something went wrong"))
+    }
+     // no error checking the database
+     else {
+      post.meta.dislike.push(userId)
+      // if the user liked as well
+      post.meta.like = post.meta.like.filter((user) => {return user != userId})
+      await post.save()
+      res.send(post)
+    }
+  })
+})
+
+router.post('/rePost', async(req, res) => {
+  const { postId, userId } = req.body
+  await Post.findOne({_id: postId}).exec(async (err, post) => {
+    // some error occured
+    if(err) {
+      res.status(500).send(new Error("Something went wrong"))
+    }
+     // no error checking the database
+     else {
+      post.meta.repost.push(userId)
+      await post.save()
+      res.send(post)
+    }
+  })
+})
+
+router.post('/removeRePost', async(req, res) => {
+  const { postId, userId } = req.body
+  await Post.findOne({_id: postId}).exec(async (err, post) => {
+    // some error occured
+    if(err) {
+      res.status(500).send(new Error("Something went wrong"))
+    }
+     // no error checking the database
+     else {
+      post.meta.repost = post.meta.repost.filter((user) => {return user != userId})
+      await post.save()
+      res.send(post)
     }
   })
 })

@@ -21,6 +21,12 @@ const postSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  meta:  {
+    comments: [],
+    repost: [],
+    like: [],
+    dislike: [], 
+  },
   created: {
     type: Date,
     required: true

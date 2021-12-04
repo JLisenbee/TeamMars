@@ -5,7 +5,12 @@ const variable = {
    SERVER_TOKEN_CHECK: 'http://localhost:5000/api',
    GET_USER_DATA: 'http://localhost:5000/api/getUserData',
    CREATE_POST: 'http://localhost:5000/api/creatPost',
-   GET_ALL_POST: 'http://localhost:5000/api/getAllPost'
+   GET_ALL_POST: 'http://localhost:5000/api/getAllPost',
+   LIKE_POST: 'http://localhost:5000/api/likePost',
+   DISLIKE_POST: 'http://localhost:5000/api/dislikePost',
+   RE_POST: 'http://localhost:5000/api/rePost',
+   REMOVE_RE_POST: 'http://localhost:5000/api/removeRePost'
+
 }
 
 export default variable
