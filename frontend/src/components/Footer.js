@@ -11,7 +11,7 @@ import "../css/footer.css";
 // internal and external links on the right
 const Footer = () => {
     return(
-        <div className = "menuContainer"> 
+        <div className = "menuContainer justified"> 
           <div className = "footerLink">
             <Wuphf />
           </div>

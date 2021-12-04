@@ -4,7 +4,25 @@
     overflow-x: hidden;
 }
 .chatBox ul>li {
-    margin: 15px 0;
+    margin: 15px 0 15px 0;
+    margin-left: 55px;
+}
+
+.tabBox {
+    background-color: var(--gray-700);
+    padding: 0.05px 0 1px 10px;
+    color: var(--gray-100);
+    border-radius: var(--border);
+    text-overflow: ellipsis;
+    margin: 0 0 15px 0;
+    overflow: hidden;
+}
+.tabBox:hover {
+    background-color: var(--gray-600);
+}
+.tabBox p>span {
+    color: var(--accent);
+    font-weight: bold;
 }
 
 .chatStyle {
@@ -13,6 +31,15 @@
     padding-bottom: 5px;
     position: relative;
     bottom: 0;
+}
+
+.chatPic {
+    border-radius: 50%;
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    margin-right: 10px;
 }
 
 .submitButton {
@@ -28,4 +55,5 @@
 li>span {
     color: #F4B400;
     font-weight: bold;
+    margin-left: -45px;
   }
