@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useStoreState } from 'easy-peasy';
 import axios from 'axios'
 import Pic from './Pic'
@@ -9,7 +9,9 @@ import variable from '../variable'
 const Post = ({id, postId, name, picture, content, created, meta}) => {
     
     const userId = useStoreState((store) => store.userId)
+    const post = useRef(null)
 
+    const [isAuthor, setisAuthor] = useState(userId === id ? true : false)
     const [isReposted, setisReposted] = useState(meta.repost.includes(userId) ? true : false)
     const [isLiked, setisLiked] = useState(meta.like.includes(userId) ? true : false)
     const [isDisliked, setisDisliked] = useState(meta.dislike.includes(userId) ? true : false)
@@ -18,6 +20,7 @@ const Post = ({id, postId, name, picture, content, created, meta}) => {
     const [repostCount, setrepostCount] = useState(meta.repost.length)
 
     useEffect(() => {
+        setisAuthor(userId === id ? true : false)
         setisLiked(meta.like.includes(userId) ? true : false)
         setisDisliked(meta.dislike.includes(userId) ? true : false)  
         setlikeCount(meta.like.length)
@@ -116,8 +119,25 @@ const Post = ({id, postId, name, picture, content, created, meta}) => {
         }
     }
 
+    const handleArchive = () => {
+        const data = {
+            postId: postId,
+            userId: userId
+        }
+
+        axios({
+            method: "POST",
+            withCredentials: true,
+            url: variable.ARCHIVE_POST,
+            data: data
+          }).then((res) => {
+            // remove the post from the page
+            post.current.style.display = 'none'
+        })
+    }
+
     return(
-        <div className = "box" style={{ display: 'flex', justifyContent: 'flex-start', alignItems:'flex-start' }}>
+        <div ref={post} className = "box" style={{ display: 'flex', justifyContent: 'flex-start', alignItems:'flex-start' }}>
             <div>
                 <Pic picture={picture}></Pic>
             </div>
@@ -157,9 +177,14 @@ const Post = ({id, postId, name, picture, content, created, meta}) => {
                         <span style={{ padding: '0 0 0 5px', fontSize: '2vmin' }}> {dislikeCount} </span>
                     </div>
                     {/* setting icon */}
-                    <div style={{opacity: '60%',  cursor: 'pointer', padding: '10px 0 0 0', display: 'flex', alignItems: 'center'}}>
-                       <svg viewBox="0 0 24 24" width="2vmin" height="2vmin" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg>
-                    </div>
+                    {
+                        isAuthor ? 
+                        <div onClick={handleArchive} style={{opacity: '60%',  cursor: 'pointer', padding: '10px 0 0 0', display: 'flex', alignItems: 'center'}}>
+                        <svg viewBox="0 0 24 24" width="2vmin" height="2vmin" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg>
+                        </div>
+                        :
+                        <></>
+                    }
                 </div>
             </div>
         </div>

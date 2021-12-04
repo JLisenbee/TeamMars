@@ -9,8 +9,8 @@ const variable = {
    LIKE_POST: 'http://localhost:5000/api/likePost',
    DISLIKE_POST: 'http://localhost:5000/api/dislikePost',
    RE_POST: 'http://localhost:5000/api/rePost',
-   REMOVE_RE_POST: 'http://localhost:5000/api/removeRePost'
-
+   REMOVE_RE_POST: 'http://localhost:5000/api/removeRePost',
+   ARCHIVE_POST: 'http://localhost:5000/api/archivePost'
 }
 
 export default variable
