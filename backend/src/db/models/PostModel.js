@@ -1,6 +1,10 @@
 const { mongoose } = require('../../middlewares/packages')
 
 const postSchema = new mongoose.Schema({
+  isArchived: {
+    type: Boolean,
+    required: true
+  },
   authorName: {
     type: String,
     required: true

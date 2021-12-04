@@ -27,6 +27,7 @@ router.get('/getUserData', async (req, res) => {
 router.post('/creatPost', async (req, res) => {
  const { userName, userPicture, userEmail, userId, postText, creationDate } = req.body
  const newPost = new Post({
+    isArchived: false,
     authorName: userName,
     authorId: userId,
     authorEmail: userEmail,
@@ -48,7 +49,7 @@ router.post('/creatPost', async (req, res) => {
 })
 
 router.get('/getAllPost', async(req, res) => {
-  await Post.find().exec(async (err, posts) => {
+  await Post.find({isArchived: false}).exec(async (err, posts) => {
     // some error occured
     if(err) {
       res.status(500).send(new Error("Something went wrong"))
@@ -123,6 +124,46 @@ router.post('/removeRePost', async(req, res) => {
      // no error checking the database
      else {
       post.meta.repost = post.meta.repost.filter((user) => {return user != userId})
+      await post.save()
+      res.send(post)
+    }
+  })
+})
+
+router.post('/archivePost', async(req, res) => {
+  const { postId, userId } = req.body
+  await Post.findOne({_id: postId}).exec(async (err, post) => {
+    // some error occured
+    if(err) {
+      res.status(500).send(new Error("Something went wrong"))
+    }
+     // no error checking the database
+     else {
+      post.isArchived = true
+      await post.save()
+      res.send('post archived')
+    }
+  })
+})
+
+router.post('/replyPost', async(req, res) => {
+  const { postId, authorName, authorId, authorPicture, authorEmail, created, content } = req.body
+  await Post.findOne({_id: postId}).exec(async (err, post) => {
+    // some error occured
+    if(err) {
+      res.status(500).send(new Error("Something went wrong"))
+    }
+     // no error checking the database
+     else {
+      const reply = {
+        authorName: authorName,
+        authorId: authorId,
+        authorPicture: authorPicture,
+        authorEmail: authorEmail,
+        content: content,
+        created: created
+      }
+      post.meta.comments.push(reply)
       await post.save()
       res.send(post)
     }
