@@ -14,6 +14,7 @@ import Notifications from './pages/Notifications'
 import Alerts from './pages/Alerts'
 import Profile from './pages/Profile'
 import Events from './pages/Events'
+import PostPage from './pages/PostPage'
 import FourOhFour from './pages/FourOhFour'
 
 const App = () => {
@@ -94,6 +95,7 @@ const App = () => {
       <Route exact path='/notifications' component={Notifications}/>
       <Route exact path='/alerts' component={Alerts}/>
       <Route path='/profile' component={Profile}/>
+      <Route path='/post' component={PostPage}/>
       <Route exact path='/events' component={Events}/>
       <Route exact path='*' component={FourOhFour}/>
     </Switch>
