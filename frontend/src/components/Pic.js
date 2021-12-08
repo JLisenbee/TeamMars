@@ -6,7 +6,7 @@ const ProfilePic = ({picture}) => {
   return(
       <>
         <Link>
-          <img style={{ margin: '0px', padding: '0px' }} className="tempPic" alt="profile_pic" src={picture}/>
+          <img style={{ margin: '0px', padding: '0px' }} className="tempPic" alt="pic" src={picture}/>
         </Link>
       </>
     )

@@ -147,6 +147,11 @@ const Post = ({id, postId, name, picture, content, created, meta}) => {
         const date1 = timecode.split("-");
         const date2 = date1[2].split("T");
         var time = date2[1].split(":")
+        time[0] = time[0] - 5;
+        if (time[0] <= 0) {
+            time[0] = time[0] + 24;
+            date2[0] = date2[0] - 1;
+        }
         if (time[0] > 12) {
             time[0] = time[0] - 12;
             time[2] = "p";
@@ -155,6 +160,7 @@ const Post = ({id, postId, name, picture, content, created, meta}) => {
             time[2] = "a"
         }
         var formatMonth = month[date1[1] - 1];
+
         var formatted = formatMonth.concat(" ", (date2[0] - 0))
         formatted = formatted.concat(", ", date1[0]);
         formatted = formatted.concat(" ", time[0]);
@@ -213,7 +219,7 @@ const Post = ({id, postId, name, picture, content, created, meta}) => {
                         <svg viewBox="0 0 24 24" width="2vmin" height="2vmin" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1"><polyline points="21 8 21 21 3 21 3 8"></polyline><rect x="1" y="3" width="22" height="5"></rect><line x1="10" y1="12" x2="14" y2="12"></line></svg>
                         </div>
                         :
-                        <></>
+                        <div style={{width:"2vmin", height:"2vmin", opacity: '60%', padding: '10px 0 0 0', display: 'flex', alignItems: 'center'}} />
                     }
                 </div>
             </div>
