@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import '../css/profilepic.css'
 
@@ -5,6 +6,10 @@ import '../css/profilepic.css'
 const ProfilePic = ({picture, userId}) => {
    
   const userUrl = `/user/${userId}`
+
+  useEffect(() => {
+    console.log(picture)
+  }, [picture])
 
   return(
       <>

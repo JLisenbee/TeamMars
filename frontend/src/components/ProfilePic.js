@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useStoreState } from 'easy-peasy'
 import '../css/profilepic.css'
@@ -8,6 +9,9 @@ const ProfilePic = () => {
   const userId = useStoreState((state) => state.userId)  
   
   const userUrl = `/user/${userId}`
+  useEffect(() => {
+    console.log(userPicture)
+  }, [userPicture])
 
   return(
       <>
