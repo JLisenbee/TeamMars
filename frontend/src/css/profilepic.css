@@ -14,15 +14,14 @@
 .userPic {
   border-radius: 50%;
   text-align: center;
-  background-image: url(../logos/dwight.jpg);
   width: 100px;
   height: 100px;
   background-size: cover;
   background-repeat: no-repeat;
   object-fit: cover;
   position: absolute;
-  left: 390px;
-  top: 240px;
+  left: 417px;
+  top: 290px;
   border: 2px solid white;
 }
 
