@@ -16,6 +16,7 @@ import Profile from './pages/Profile'
 import Events from './pages/Events'
 import PostPage from './pages/PostPage'
 import FourOhFour from './pages/FourOhFour'
+import UserProfile from './pages/UserProfile'
 
 const App = () => {
 
@@ -92,6 +93,7 @@ const App = () => {
       <Route exact path='/home' component={Home}/>
       <Route exact path='/' component={Home}/>
       <Route path='/groups' component={Groups}/>
+      <Route path='/user/:id' component={UserProfile}/>
       <Route exact path='/notifications' component={Notifications}/>
       <Route exact path='/alerts' component={Alerts}/>
       <Route path='/profile' component={Profile}/>
