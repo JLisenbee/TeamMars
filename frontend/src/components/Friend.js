@@ -1,13 +1,15 @@
-import { Link } from 'react-router-dom'
-import ProfilePic from './ProfilePic'
+import Pic from './Pic'
 
 
 // Header for pages, contains the logo with link to home
 // As well as a search bar and various buttons
-const Friend = () => {
+const Friend = ({data}) => {
     return(
-        <div>
-            <ProfilePic /> Friend?
+        <div style={{ display: 'flex', alignItems: 'center', padding: '15px 0 0 0' }}>
+            <Pic picture={data.picture} userId={data._id} /> 
+            <div style={{padding: '0 0 0 10px'}}>
+                { data.name }
+            </div>
         </div>
     )
   }

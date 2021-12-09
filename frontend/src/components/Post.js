@@ -173,7 +173,7 @@ const Post = ({id, postId, name, picture, content, created, meta}) => {
     return(
         <div ref={post} className = "box" style={{ display: 'flex', justifyContent: 'flex-start', alignItems:'flex-start' }}>
             <div>
-                <Pic picture={picture}></Pic>
+                <Pic picture={picture} userId={id}></Pic>
             </div>
             <div style={{ margin: '0px', padding: '0px', width: '80%' }}>
 

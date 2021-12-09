@@ -170,4 +170,18 @@ router.post('/replyPost', async(req, res) => {
   })
 })
 
+router.get('/getFriends', async(req, res) => {
+  await User.find().exec(async (err, users) => {
+    // some error occured
+    if(err) {
+      res.status(500).send(new Error("Something went wrong"))
+    }
+     // no error checking the database
+     else {
+      //  send back user data
+      res.send(users)
+    }
+  })
+})
+
 module.exports = router

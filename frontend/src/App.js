@@ -96,7 +96,7 @@ const App = () => {
       <Route path='/user/:id' component={UserProfile}/>
       <Route exact path='/notifications' component={Notifications}/>
       <Route exact path='/alerts' component={Alerts}/>
-      <Route path='/profile' component={Profile}/>
+      <Route path='/user/:id' component={Profile}/>
       <Route path='/post' component={PostPage}/>
       <Route exact path='/events' component={Events}/>
       <Route exact path='*' component={FourOhFour}/>

@@ -11,7 +11,8 @@ const variable = {
    RE_POST: 'http://localhost:5000/api/rePost',
    REMOVE_RE_POST: 'http://localhost:5000/api/removeRePost',
    ARCHIVE_POST: 'http://localhost:5000/api/archivePost',
-   REPLY_POST: 'http://localhost:5000/api/replyPost'
+   REPLY_POST: 'http://localhost:5000/api/replyPost',
+   GET_FRIENDS: 'http://localhost:5000/api/getFriends'
 }
 
 export default variable
