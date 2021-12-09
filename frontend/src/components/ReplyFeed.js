@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Post from './Post'
+import Reply from './Reply'
 import PostButton from './PostButton'
 
 // Feed containing posts specific to the user's subscribed tags
@@ -45,15 +46,15 @@ const ReplyFeed = ({data}) => {
                <div style={{opacity: '50%', fontStyle: "italic", display: 'flex', justifyContent: 'center'}} >No Replies Here</div>
                :
                allReplies.slice(0).map((post, key) => (
-                <Post 
-                    id={data.authorId}
-                    postId={data._id}
-                    name={data.authorName}
-                    picture={data.authorPicture}
-                    content={data.content}
-                    created={data.created}
-                    meta={data.meta}
-                    ></Post>
+                <Reply
+                    id={post.authorId}
+                    postId={post._id}
+                    name={post.authorName}
+                    picture={post.authorPicture}
+                    content={post.content}
+                    created={post.created}
+                    meta={post.meta}
+                    ></Reply>
                )) 
             }
         </div>

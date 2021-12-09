@@ -22,6 +22,7 @@ const ReplyModel = ({isModelOpen, setisModelOpen,id, postId, name, picture, cont
       authorEmail: userEmail,
       authorPicture: userPicture,
       content: replyText,
+      meta:[],
       created: new Date()
     }
 
