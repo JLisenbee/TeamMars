@@ -38,6 +38,36 @@ const ReplyModel = ({isModelOpen, setisModelOpen,id, postId, name, picture, cont
    
   }
 
+  const formatTime = (timecode) => {
+        
+    const month = ["Jan","Feb","Mar","Apr","May","June",
+                   "July","Aug","Sept","Oct","Nov","Dec"];
+    const date1 = timecode.split("-");
+    const date2 = date1[2].split("T");
+    var time = date2[1].split(":")
+    time[0] = time[0] - 5;
+    if (time[0] <= 0) {
+        time[0] = time[0] + 24;
+        date2[0] = date2[0] - 1;
+    }
+    if (time[0] > 12) {
+        time[0] = time[0] - 12;
+        time[2] = "p";
+    } else {
+        time[0] = time[0] - 0;
+        time[2] = "a"
+    }
+    var formatMonth = month[date1[1] - 1];
+
+    var formatted = formatMonth.concat(" ", (date2[0] - 0))
+    formatted = formatted.concat(", ", date1[0]);
+    formatted = formatted.concat(" ", time[0]);
+    formatted = formatted.concat(":", time[1]);
+    formatted = formatted.concat(time[2]);
+
+    return formatted;
+  }
+
   return(
     <> 
       <div onClick={() => {
@@ -68,7 +98,7 @@ const ReplyModel = ({isModelOpen, setisModelOpen,id, postId, name, picture, cont
                   <p style={{ margin: '0px', padding: '0 0 0 10px', fontWeight: 'bold' }}>{name}</p>
                   <p style={{ margin: '0px', padding: '0 0 0 10px', opacity: '60%', fontSize: '1.7vmin' }}>@{id}</p>  
                   <span style={{ margin: '0px', padding: '0 0 0 10px', opacity: '60%', fontSize: '1.7vmin' }}>&#183;</span>
-                  <p style={{ margin: '0px', padding: '0 0 0 10px', opacity: '60%', fontSize: '1.7vmin' }}>{created}</p>
+                  <p style={{ margin: '0px', padding: '0 0 0 10px', opacity: '60%', fontSize: '1.7vmin' }}>{formatTime(created)}</p>
               </div>
 
               {/* actual post */}
