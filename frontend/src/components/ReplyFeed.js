@@ -1,27 +1,38 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-import variable from '../variable'
 import Post from './Post'
 import PostButton from './PostButton'
 
 // Feed containing posts specific to the user's subscribed tags
-const ReplyFeed = ({sourceId}) => {
+const ReplyFeed = ({data}) => {
 
     const [isModelOpen, setisModelOpen] = useState(false)
-    const [allPosts, setallPosts] = useState([])
+    const [allReplies, setallReplies] = useState([])
+    const [postData, setpostData] = useState([])
 
     useEffect(() => {
-        axios({
-            method: "GET",
-            withCredentials: true,
-            url: variable.GET_ALL_POST,
-            }).then((res) => {
-            setallPosts(res.data)
-        })
-    }, [])
+        console.log(data)
+        console.log(data.meta)
+        console.log(data.meta.comments)
+        setpostData(data)
+        setallReplies(data.meta.comments)
+    }, [data, data.meta.comments])
 
     return(
         <div style={{ width: '100%' }}>
+            {
+                postData.length !== 0 ? 
+                <Post 
+                    id={data.authorId}
+                    postId={data._id}
+                    name={data.authorName}
+                    picture={data.authorPicture}
+                    content={data.content}
+                    created={data.created}
+                    meta={data.meta}
+                    ></Post>
+                :
+                <></>
+            }
             <div style={{ 
                 display: 'flex', 
                 flexDirection: 'row', 
@@ -30,17 +41,20 @@ const ReplyFeed = ({sourceId}) => {
                 <h2>Replies</h2>
             </div>
             { 
-               allPosts.length === 0 ? 
+               allReplies.length === 0 ? 
                <div style={{opacity: '50%', fontStyle: "italic", display: 'flex', justifyContent: 'center'}} >No Replies Here</div>
                :
-               allPosts.slice(0).map((post, key) => (<Post key={key} 
-                postId={post._id}
-                id={post.authorId} 
-                name={post.authorName} 
-                picture={post.authorPicture} 
-                content={post.content} 
-                created={post.created}
-                meta={post.meta}></Post>)) 
+               allReplies.slice(0).map((post, key) => (
+                <Post 
+                    id={data.authorId}
+                    postId={data._id}
+                    name={data.authorName}
+                    picture={data.authorPicture}
+                    content={data.content}
+                    created={data.created}
+                    meta={data.meta}
+                    ></Post>
+               )) 
             }
         </div>
     )

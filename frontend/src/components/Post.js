@@ -184,7 +184,7 @@ const Post = ({id, postId, name, picture, content, created, meta}) => {
                     <span style={{ margin: '0px', padding: '0 0 0 10px', opacity: '60%', fontSize: '1.7vmin' }}>&#183;</span>
                     <p style={{ margin: '0px', padding: '0 0 0 10px', opacity: '60%', fontSize: '1.7vmin' }}>{formatTime(created)}</p>
                     <span style={{ margin: '0px', padding: '0 0 0 10px', opacity: '60%', fontSize: '1.7vmin' }}>&#183;</span>
-                    <p style={{ margin: '0px', padding: '0 0 0 10px', opacity: '60%', fontSize: '1.7vmin' }}><Link className = "noHighlight grayText" to = {'/post/' + userId}>View Replies</Link></p>
+                    <p style={{ margin: '0px', padding: '0 0 0 10px', opacity: '60%', fontSize: '1.7vmin' }}><Link className = "noHighlight grayText" to = {'/post/' + postId}>View Replies</Link></p>
                 </div>
 
                 {/* actual post */}
