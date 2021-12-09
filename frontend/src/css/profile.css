@@ -1,50 +1,256 @@
 .settingHeader {
-    width: 100%;
-    font-size: large;
-    margin: 4px 0 4px 1vw;
-    color: var(--gray-300);
+  width: 100%;
+  font-size: large;
+  margin: 4px 0 4px 1vw;
+  color: var(--gray-300);
 }
-    
+
 .settingButton {
-    width: 100%;
-    border-style: none;
-    border-radius: var(--border);
-    color: var(--gray-100);
-    text-decoration: none;
-    font-weight: normal;
-    margin: 4px 0;
-    padding: 5px 0 5px 1vw;
+  width: 100%;
+  border-style: none;
+  border-radius: var(--border);
+  color: var(--gray-100);
+  text-decoration: none;
+  font-weight: normal;
+  margin: 4px 0;
+  padding: 5px 0 5px 1vw;
 }
 .settingButton:hover {
-    background-color: var(--gray-700);
-    cursor: pointer;
+  background-color: var(--gray-700);
+  cursor: pointer;
+}
+
+.userNavButton {
+  width: 100%;
+  border-style: none;
+  border-radius: var(--border);
+  color: var(--gray-100);
+  text-decoration: none;
+  font-weight: bold;
+  margin: 4px 60px 4px 20px;
+  text-align: left;
+  justify-content: space-evenly;
+}
+
+.userNavButton:hover {
+  color: var(--accent);
+  cursor: pointer;
 }
 
 .selected {
-    background-color: var(--gray-800);
-    color: var(--white);
-    font-weight: bold;
+  background-color: var(--gray-800);
+  color: var(--white);
+  font-weight: bold;
 }
 
-input[type=settingText] {
-    background-color: var(--gray-700);
-    color: var(--white);
-    height: 40px;
-    width: 40%;
-    outline: none;
-    text-indent: 10px;
-    font-weight: bold;
-    font-size: 14px;
-    border-style: solid;
-    border-color: var(--gray-900);
-    border-radius: var(--border);
-    border-width: 1px;
-  }
-  input[type=settingText]:focus {
-    background-color: var(--gray-800);
-    border-color: var(--gray-300);
-  }
-  ::placeholder {
-    color: var(--gray-300);
-    font-weight: bold;
-  }
+.goldSelected {
+  color: var(--accent);
+}
+
+input[type="settingText"] {
+  background-color: var(--gray-700);
+  color: var(--white);
+  height: 40px;
+  width: 40%;
+  outline: none;
+  text-indent: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  border-style: solid;
+  border-color: var(--gray-900);
+  border-radius: var(--border);
+  border-width: 1px;
+}
+input[type="settingText"]:focus {
+  background-color: var(--gray-800);
+  border-color: var(--gray-300);
+}
+::placeholder {
+  color: var(--gray-300);
+  font-weight: bold;
+}
+
+.profileNavBox {
+  margin: 10px 0px;
+  min-width: 20vw;
+}
+
+.profileNavBar {
+  display: flex;
+  margin: 10px 0;
+}
+
+.followButton {
+  position: absolute;
+  border-style: solid;
+  border-color: var(--gray-900);
+  border-radius: var(--border);
+  border-width: 1px;
+  padding: 5px;
+  color: var(--white);
+  background-color: var(--accent);
+  font-weight: bold;
+  text-align: center;
+  font-size: 14px;
+  width: 80px;
+  height: 20px;
+  margin: 20px 0px 0px 390px;
+}
+
+.followButton:hover {
+  border-color: var(--white);
+  cursor: pointer;
+}
+
+.dmButton {
+  position: absolute;
+  border-style: solid;
+  background-color: var(--gray-700);
+  border-color: var(--gray-900);
+  border-radius: var(--border);
+  border-width: 1px;
+  padding: 5px;
+  color: var(--white);
+  font-weight: bold;
+  font-size: 14px;
+  width: 100px;
+  height: 20px;
+  margin: 20px 0px 0px 500px;
+  text-align: center;
+}
+
+.dmButton:hover {
+  border-color: var(--white);
+  cursor: pointer;
+}
+
+.usernameText {
+  font-stretch: narrower;
+  margin: 0;
+  padding: 0;
+}
+
+.underline {
+  padding-bottom: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  width: fit-content;
+  border-radius: none;
+}
+
+.scheduleText {
+  padding: 10px;
+  font-size: 14px;
+}
+
+.scheduleRight {
+  display: flex;
+  margin: 5px;
+}
+
+.addCalendarButton {
+  border-style: solid;
+  background-color: var(--gray-700);
+  border-color: var(--gray-900);
+  border-radius: var(--border);
+  border-width: 1px;
+  padding: 5px;
+  color: var(--white);
+  width: 120px;
+  height: 20px;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+  margin: auto;
+}
+
+.addCalendarButton:hover {
+  border-color: var(--white);
+  cursor: pointer;
+}
+
+.groupScheduleButton {
+  border-style: solid;
+  background-color: var(--gray-700);
+  border-color: var(--gray-900);
+  border-radius: var(--border);
+  border-width: 1px;
+  padding: 5px;
+  color: var(--white);
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  margin: auto;
+}
+
+.groupScheduleButton:hover {
+  border-color: var(--white);
+  cursor: pointer;
+}
+
+.postDate {
+  font-size: 14px;
+  color: var(--accent);
+}
+
+.postImg {
+  margin-top: 20px;
+  width: 100%;
+  max-height: 500px;
+}
+
+.logOutButton {
+  border-style: solid;
+  border-color: var(--gray-900);
+  border-radius: var(--border);
+  border-width: 1px;
+  padding: 5px;
+  color: var(--white);
+  background-color: var(--accent);
+  font-weight: bold;
+  text-align: center;
+  width: 150px;
+  height: 20px;
+  position: absolute;
+  margin: 560px 0px 0px 90px;
+}
+
+.logOutButton:hover {
+  border-color: var(--white);
+  cursor: pointer;
+}
+
+.tagBox {
+  margin-top: 20px;
+}
+
+.majorsTag {
+  margin-left: 130px;
+  margin-top: 80px;
+  margin-bottom: 10px;
+  position: absolute;
+}
+
+.someoneStyle {
+  margin-bottom: 15px;
+}
+
+.usernameText {
+  margin-bottom: 10px;
+  top: -14px;
+}
+
+.classList {
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.professor {
+  margin-top: 5px;
+  color: var(--gray-300);
+}
+
+.semester {
+  margin-left: 10px;
+  font-weight: bolder;
+}
